@@ -123,29 +123,196 @@
     .divider-ornament::after{background:linear-gradient(to left,transparent,var(--ochre));}
     .divider-diamond{width:7px;height:7px;background:var(--ochre);transform:rotate(45deg);}
     .converter-section{max-width:1140px;margin:0 auto;padding:0 1.5rem 3.5rem;}
+
+    /* Converter Filter Tabs */
+    .converter-mode-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      background: rgba(201,133,58,0.08);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.3rem;
+      max-width: 580px;
+      margin: 0 auto 1.75rem;
+      backdrop-filter: blur(12px);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .converter-mode-tabs::-webkit-scrollbar { display: none; }
+    html.dark .converter-mode-tabs {
+      background: rgba(224,160,80,0.08);
+    }
+    .mode-tab-btn {
+      flex: 1;
+      padding: 0.48rem 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      text-align: center;
+      font-family: inherit;
+    }
+    .mode-tab-btn.active {
+      background: var(--ochre);
+      color: #fff;
+      box-shadow: 0 2px 8px var(--glow);
+    }
+    .mode-tab-btn:hover:not(.active) {
+      color: var(--text);
+      background: rgba(201,133,58,0.12);
+    }
+
     .converter-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-    @media(max-width:820px){.converter-grid{grid-template-columns:1fr;}}
+    @media(max-width:820px){.converter-grid{grid-template-columns:1fr;gap:1.15rem;}}
+
+    .arabic-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .arabic-split-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.1rem !important;
+      }
+    }
+
     .card{background:var(--card-bg);border:1px solid var(--border);border-radius:18px;padding:1.75rem;backdrop-filter:blur(16px);box-shadow:0 6px 28px rgba(0,0,0,0.06);transition:box-shadow 0.3s,transform 0.3s;}
     .card:hover{box-shadow:0 10px 36px rgba(201,133,58,0.13);transform:translateY(-2px);}
-    .card-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--ochre);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;}
+    .card-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--ochre);margin-bottom:1.15rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;}
     .card-title-left{display:flex;align-items:center;gap:0.5rem;}
     .card-title-left::before{content:'';width:3.5px;height:1.25em;background:var(--ochre);border-radius:2px;flex-shrink:0;}
     .card-tag{font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;color:var(--text-muted);background:var(--tag-bg);padding:0.2rem 0.5rem;border-radius:6px;border:1px solid var(--border);}
-    label{display:block;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.5rem;}
-    textarea{width:100%;padding:0.85rem 1rem;background:rgba(255,255,255,0.7);border:1.5px solid var(--border);border-radius:12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:1.05rem;line-height:1.6;resize:vertical;min-height:105px;transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
+    
+    .field-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+    label{display:block;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0;}
+    .field-actions-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .char-count {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .clear-field-btn {
+      background: none;
+      border: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .clear-field-btn:hover {
+      color: var(--terracotta);
+      background: rgba(184,92,56,0.1);
+    }
+
+    textarea{width:100%;padding:0.85rem 1rem;background:rgba(255,255,255,0.7);border:1.5px solid var(--border);border-radius:12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;resize:vertical;min-height:95px;transition:border-color 0.2s,box-shadow 0.2s;outline:none;box-sizing:border-box;}
     html.dark textarea{background:rgba(255,255,255,0.06);}
     textarea:focus{border-color:var(--ochre);box-shadow:0 0 0 3px var(--glow);}
     textarea[readonly]{background:rgba(201,133,58,0.04);cursor:default;}
-    .font-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.2rem;}
-    .sample-chips-row{display:flex;align-items:center;gap:0.4rem;margin-top:0.5rem;flex-wrap:wrap;}
-    .chips-label{font-size:0.74rem;color:var(--text-muted);font-weight:600;margin-right:0.2rem;}
-    .sample-chip{background:rgba(201,133,58,0.08);border:1px solid rgba(201,133,58,0.22);border-radius:6px;padding:0.18rem 0.5rem;font-size:0.78rem;color:var(--text);cursor:pointer;transition:all 0.15s ease;font-weight:500;}
+    .font-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.3rem;line-height:1.6;}
+    
+    /* Quick Latin Special Letters */
+    .quick-chars-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.2rem 0 0.3rem;
+      scrollbar-width: none;
+    }
+    .quick-chars-bar::-webkit-scrollbar { display: none; }
+    .quick-chars-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin-right: 0.2rem;
+    }
+    .quick-char-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 30px;
+      padding: 0 0.45rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--tag-bg);
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    .quick-char-btn:hover, .quick-char-btn:active {
+      border-color: var(--ochre);
+      background: var(--ochre);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Reverse swap button */
+    .swap-direction-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 0.45rem;
+    }
+    .swap-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--ochre);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.28rem 0.65rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    .swap-btn:hover {
+      background: rgba(201,133,58,0.14);
+      border-color: var(--ochre);
+      transform: translateY(-1px);
+    }
+
+    .sample-chips-row{display:flex;align-items:center;gap:0.4rem;margin-top:0.5rem;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .sample-chips-row::-webkit-scrollbar { display: none; }
+    .chips-label{font-size:0.74rem;color:var(--text-muted);font-weight:600;margin-right:0.2rem;flex-shrink:0;}
+    .sample-chip{background:rgba(201,133,58,0.08);border:1px solid rgba(201,133,58,0.22);border-radius:6px;padding:0.22rem 0.55rem;font-size:0.78rem;color:var(--text);cursor:pointer;transition:all 0.15s ease;font-weight:500;white-space:nowrap;flex-shrink:0;touch-action:manipulation;}
     .sample-chip:hover{background:var(--ochre);color:white;border-color:var(--ochre);transform:translateY(-1px);}
-    .output-wrap{position:relative;margin-top:1rem;}
-    .copy-btn{position:absolute;top:0.65rem;right:0.65rem;background:var(--sand-dark);border:1px solid var(--border);border-radius:8px;width:34px;height:34px;cursor:pointer;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+    .output-wrap{position:relative;margin-top:0;}
+    .copy-btn{position:absolute;top:0.65rem;right:0.65rem;background:var(--sand-dark);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;cursor:pointer;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all 0.2s;touch-action:manipulation;}
     html.dark .copy-btn{background:rgba(255,255,255,0.08);}
     .copy-btn:hover{background:var(--ochre);color:white;border-color:var(--ochre);}
-    .copy-confirm{position:absolute;top:0.75rem;right:3rem;font-size:0.75rem;font-weight:600;color:#22c55e;opacity:0;transition:opacity 0.3s;pointer-events:none;}
+    .copy-confirm{position:absolute;top:0.75rem;right:3.25rem;font-size:0.75rem;font-weight:600;color:#22c55e;opacity:0;transition:opacity 0.3s;pointer-events:none;}
     .copy-confirm.show{opacity:1;}
     .field-group{margin-top:1.25rem;}.field-group:first-child{margin-top:0;}
     .hub-section{max-width:1140px;margin:0 auto;padding:2.5rem 1.5rem 4.5rem;}
@@ -255,29 +422,53 @@
 
   <!-- CONVERTERS -->
   <main class="converter-section">
+    <!-- Mode Switcher Tabs -->
+    <div class="converter-mode-tabs" role="tablist">
+      <button type="button" class="mode-tab-btn active" id="tab-all" onclick="switchConverterMode('all', this)" role="tab" aria-selected="true">
+        <span>✨ Tous les convertisseurs</span>
+      </button>
+      <button type="button" class="mode-tab-btn" id="tab-tifi" onclick="switchConverterMode('tifi-to-lat', this)" role="tab" aria-selected="false">
+        <span>ⵣ Tifinagh → Latin</span>
+      </button>
+      <button type="button" class="mode-tab-btn" id="tab-lat" onclick="switchConverterMode('lat-to-tifi', this)" role="tab" aria-selected="false">
+        <span>🔤 Latin → Tifinagh</span>
+      </button>
+      <button type="button" class="mode-tab-btn" id="tab-ar" onclick="switchConverterMode('ar-to-tifi', this)" role="tab" aria-selected="false">
+        <span>🌙 Arabe → Tifinagh</span>
+      </button>
+    </div>
+
     <div class="converter-grid">
 
       <!-- CARD 1: Tifinagh → Talatint -->
-      <div class="card">
+      <div class="card" id="card-tifi-to-lat">
         <div class="card-title">
           <div class="card-title-left">Tifinagh → Talatint (Latin)</div>
           <span class="card-tag">Écriture Berbère</span>
         </div>
 
         <div class="field-group">
-          <label for="tifinaghInputMain">Entrée Tifinagh</label>
+          <div class="field-label-row">
+            <label for="tifinaghInputMain">Entrée Tifinagh</label>
+            <div class="field-actions-top">
+              <span id="charCountTifinagh" class="char-count">0 car.</span>
+              <button type="button" class="clear-field-btn" onclick="clearField('tifinaghInputMain', 'talatintOutput', 'charCountTifinagh')">✕ Effacer</button>
+            </div>
+          </div>
           <textarea id="tifinaghInputMain" class="font-tifinagh" placeholder="Tapez ou collez du Tifinagh ici (ex. ⴰⵣⵓⵍ)…"></textarea>
           <div class="sample-chips-row">
             <span class="chips-label">Exemples :</span>
             <button type="button" class="sample-chip" onclick="setSample('tifinagh', 'ⴰⵣⵓⵍ')">ⴰⵣⵓⵍ (Azul)</button>
             <button type="button" class="sample-chip" onclick="setSample('tifinagh', 'ⵜⴰⵏⵎⵎⵉⵔⵜ')">ⵜⴰⵏⵎⵎⵉⵔⵜ (Merci)</button>
             <button type="button" class="sample-chip" onclick="setSample('tifinagh', 'ⴰⵎⵖⵏⴰⵙ')">ⴰⵎⵖⵏⴰⵙ (Militant)</button>
-            <button type="button" class="sample-chip" onclick="setSample('tifinagh', 'ⵜⴰⵎⴰⵣⵉⵖⵜ')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
+            <button type="button" class="sample-chip" onclick="setSample('tifinagh', 'ⵜⴰ his')">ⵜⴰⵎⴰⵣⵉⵖⵜ</button>
           </div>
         </div>
 
         <div class="field-group">
-          <label for="talatintOutput">Sortie Talatint (Latin)</label>
+          <div class="field-label-row">
+            <label for="talatintOutput">Sortie Talatint (Latin)</label>
+          </div>
           <div class="output-wrap">
             <textarea id="talatintOutput" readonly placeholder="La transcription latine apparaîtra ici…"></textarea>
             <button class="copy-btn" onclick="copyText('talatintOutput', this)" title="Copier">
@@ -285,19 +476,46 @@
             </button>
             <span id="talatintOutput-confirm" class="copy-confirm">Copié !</span>
           </div>
+          <div class="swap-direction-bar">
+            <button type="button" class="swap-btn" onclick="swapDirection('tifi-to-lat')" title="Inverser la direction">
+              ⇄ Inverser (Latin → Tifinagh)
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- CARD 2: Talatint → Tifinagh -->
-      <div class="card">
+      <div class="card" id="card-lat-to-tifi">
         <div class="card-title">
           <div class="card-title-left">Talatint (Latin) → Tifinagh</div>
           <span class="card-tag">Phonétique Latine</span>
         </div>
 
         <div class="field-group">
-          <label for="talatintInputMain">Entrée Talatint</label>
+          <div class="field-label-row">
+            <label for="talatintInputMain">Entrée Talatint</label>
+            <div class="field-actions-top">
+              <span id="charCountTalatint" class="char-count">0 car.</span>
+              <button type="button" class="clear-field-btn" onclick="clearField('talatintInputMain', 'tifinaghTalatintOutput', 'charCountTalatint')">✕ Effacer</button>
+            </div>
+          </div>
           <textarea id="talatintInputMain" placeholder="Tapez en lettres latines (ex. azul, amɣnas, saḥt)…"></textarea>
+          
+          <!-- Barre de caractères spéciaux amazighs pour mobiles -->
+          <div class="quick-chars-bar" title="Cliquez pour insérer une lettre spéciale">
+            <span class="quick-chars-label">Lettres :</span>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ɣ')">ɣ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ɛ')">ɛ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ḍ')">ḍ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ḥ')">ḥ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ṛ')">ṛ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ṣ')">ṣ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ṭ')">ṭ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'ẓ')">ẓ</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'č')">č</button>
+            <button type="button" class="quick-char-btn" onclick="insertSpecialChar('talatintInputMain', 'š')">š</button>
+          </div>
+
           <div class="sample-chips-row">
             <span class="chips-label">Exemples :</span>
             <button type="button" class="sample-chip" onclick="setSample('talatint', 'azul')">azul</button>
@@ -308,7 +526,9 @@
         </div>
 
         <div class="field-group">
-          <label for="tifinaghTalatintOutput">Sortie Tifinagh</label>
+          <div class="field-label-row">
+            <label for="tifinaghTalatintOutput">Sortie Tifinagh</label>
+          </div>
           <div class="output-wrap">
             <textarea id="tifinaghTalatintOutput" readonly class="font-tifinagh" placeholder="Sortie Tifinagh…"></textarea>
             <button class="copy-btn" onclick="copyText('tifinaghTalatintOutput', this)" title="Copier">
@@ -316,11 +536,16 @@
             </button>
             <span id="tifinaghTalatintOutput-confirm" class="copy-confirm">Copié !</span>
           </div>
+          <div class="swap-direction-bar">
+            <button type="button" class="swap-btn" onclick="swapDirection('lat-to-tifi')" title="Inverser la direction">
+              ⇄ Inverser (Tifinagh → Latin)
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- CARD 3: Arabe → Tifinagh -->
-      <div class="card" style="grid-column: 1 / -1;">
+      <div class="card" id="card-ar-to-tifi" style="grid-column: 1 / -1;">
         <div class="card-title">
           <div class="card-title-left">Arabe → Tifinagh (العربية إلى التيفيناغ)</div>
           <span class="card-tag">Clavier Arabe</span>
@@ -336,9 +561,15 @@
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" class="arabic-split-grid">
+        <div class="arabic-split-grid">
           <div class="field-group" style="margin-top:0;">
-            <label for="arabicInputMain">Entrée Arabe</label>
+            <div class="field-label-row">
+              <label for="arabicInputMain">Entrée Arabe</label>
+              <div class="field-actions-top">
+                <span id="charCountArabic" class="char-count">0 car.</span>
+                <button type="button" class="clear-field-btn" onclick="clearField('arabicInputMain', 'arabicTifinaghOutput', 'charCountArabic')">✕ Effacer</button>
+              </div>
+            </div>
             <textarea id="arabicInputMain" placeholder="أدخل النص العربي هنا (مثال: تمازيغت، أزول)…" dir="rtl"></textarea>
             <div class="sample-chips-row">
               <span class="chips-label">Exemples :</span>
@@ -349,7 +580,9 @@
           </div>
 
           <div class="field-group" style="margin-top:0;">
-            <label for="arabicTifinaghOutput">Sortie Tifinagh</label>
+            <div class="field-label-row">
+              <label for="arabicTifinaghOutput">Sortie Tifinagh</label>
+            </div>
             <div class="output-wrap">
               <textarea id="arabicTifinaghOutput" readonly class="font-tifinagh" placeholder="Sortie Tifinagh…"></textarea>
               <button class="copy-btn" onclick="copyText('arabicTifinaghOutput', this)" title="Copier">
@@ -651,6 +884,114 @@
       input.focus();
     }
   }
+
+  // Changer de mode de conversion sur mobile & bureau
+  function switchConverterMode(mode, btn) {
+    document.querySelectorAll('.mode-tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    if (btn) {
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
+
+    const cardTifi = document.getElementById('card-tifi-to-lat');
+    const cardLat = document.getElementById('card-lat-to-tifi');
+    const cardAr = document.getElementById('card-ar-to-tifi');
+
+    if (mode === 'all') {
+      if (cardTifi) cardTifi.style.display = 'block';
+      if (cardLat) cardLat.style.display = 'block';
+      if (cardAr) cardAr.style.display = 'block';
+    } else if (mode === 'tifi-to-lat') {
+      if (cardTifi) cardTifi.style.display = 'block';
+      if (cardLat) cardLat.style.display = 'none';
+      if (cardAr) cardAr.style.display = 'none';
+      document.getElementById('tifinaghInputMain')?.focus();
+    } else if (mode === 'lat-to-tifi') {
+      if (cardTifi) cardTifi.style.display = 'none';
+      if (cardLat) cardLat.style.display = 'block';
+      if (cardAr) cardAr.style.display = 'none';
+      document.getElementById('talatintInputMain')?.focus();
+    } else if (mode === 'ar-to-tifi') {
+      if (cardTifi) cardTifi.style.display = 'none';
+      if (cardLat) cardLat.style.display = 'none';
+      if (cardAr) cardAr.style.display = 'block';
+      document.getElementById('arabicInputMain')?.focus();
+    }
+  }
+
+  // Effacer le champ et son résultat
+  function clearField(inputId, outputId, counterId) {
+    const input = document.getElementById(inputId);
+    const output = document.getElementById(outputId);
+    const counter = document.getElementById(counterId);
+    if (input) {
+      input.value = '';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.focus();
+    }
+    if (output) output.value = '';
+    if (counter) counter.textContent = '0 car.';
+  }
+
+  // Insérer un caractère latin spécial (ex. ɣ, ɛ, ḍ...)
+  function insertSpecialChar(inputId, char) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    const start = input.selectionStart || input.value.length;
+    const end = input.selectionEnd || input.value.length;
+    const text = input.value;
+    input.value = text.substring(0, start) + char + text.substring(end);
+    input.selectionStart = input.selectionEnd = start + char.length;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.focus();
+  }
+
+  // Inverser la direction de conversion
+  function swapDirection(fromMode) {
+    if (fromMode === 'tifi-to-lat') {
+      const outputVal = document.getElementById('talatintOutput')?.value;
+      if (outputVal) {
+        setSample('talatint', outputVal);
+        const latTab = document.getElementById('tab-lat');
+        if (latTab && window.innerWidth <= 820) {
+          switchConverterMode('lat-to-tifi', latTab);
+        }
+        document.getElementById('card-lat-to-tifi')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } else if (fromMode === 'lat-to-tifi') {
+      const outputVal = document.getElementById('tifinaghTalatintOutput')?.value;
+      if (outputVal) {
+        setSample('tifinagh', outputVal);
+        const tifiTab = document.getElementById('tab-tifi');
+        if (tifiTab && window.innerWidth <= 820) {
+          switchConverterMode('tifi-to-lat', tifiTab);
+        }
+        document.getElementById('card-tifi-to-lat')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
+  // Compteur de caractères en direct
+  function bindCharCounter(inputId, counterId) {
+    const el = document.getElementById(inputId);
+    const countEl = document.getElementById(counterId);
+    if (!el || !countEl) return;
+    const update = () => {
+      const len = el.value.length;
+      countEl.textContent = len + ' car.';
+    };
+    el.addEventListener('input', update);
+    update();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    bindCharCounter('tifinaghInputMain', 'charCountTifinagh');
+    bindCharCounter('talatintInputMain', 'charCountTalatint');
+    bindCharCounter('arabicInputMain', 'charCountArabic');
+  });
 </script>
 </body>
 </html>
