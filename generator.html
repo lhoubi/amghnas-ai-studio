@@ -209,14 +209,39 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--ochre); }
     .nav-links a:hover::after, .nav-links a.active::after { width: 60%; }
+    .nav-right { display: flex; align-items: center; gap: 0.6rem; }
+    .lang-switcher { display: flex; align-items: center; gap: 0.35rem; }
+    .lang-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 0.22rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1.3;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      border-color: var(--ochre);
+      color: var(--ochre);
+      background: rgba(201,133,58,0.08);
+    }
     .nav-hamburger { display: none; background: none; border: 1.5px solid rgba(201,133,58,0.3); border-radius: 8px; width: 38px; height: 38px; cursor: pointer; color: var(--text-muted); align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
     .nav-hamburger:hover { border-color: var(--ochre); color: var(--ochre); }
     #themeToggle { background: none; border: 1.5px solid rgba(201,133,58,0.3); border-radius: 50%; width: 38px; height: 38px; cursor: pointer; color: var(--text-muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
     #themeToggle:hover { border-color: var(--ochre); color: var(--ochre); }
     .sun-icon { display: none; } html.dark .moon-icon { display: none; } html.dark .sun-icon { display: flex; }
     @media(max-width: 640px) {
-      nav { padding: 0 1rem !important; display: flex; align-items: center; justify-content: space-between; }
-      .nav-brand { font-size: 1.3rem; color: var(--ochre) !important; flex-shrink: 0; display: flex !important; }
+      nav { padding: 0 0.85rem !important; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+      .nav-brand { font-size: 1.35rem; color: var(--ochre) !important; flex-shrink: 0; display: flex !important; }
+      .nav-right { gap: 0.35rem; }
+      .lang-switcher { gap: 0.2rem; }
+      .lang-btn { padding: 0.2rem 0.45rem; font-size: 0.72rem; }
+      #themeToggle, .nav-hamburger { width: 34px; height: 34px; }
       .nav-hamburger { display: flex !important; }
       .nav-links { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(245,237,224,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(201,133,58,0.15); flex-direction: column; gap: 0; z-index: 99; padding: 0.5rem 0 1rem; list-style: none; }
       html.dark .nav-links { background: rgba(26,23,40,0.97); }
@@ -294,7 +319,24 @@
     }
 
     .input-row {
-      display: flex; gap: 1rem; margin-bottom: 1rem;
+      display: flex; gap: 0.65rem; margin-bottom: 1rem;
+    }
+    .input-lang-btn {
+      background: var(--bg3);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .input-lang-btn:hover, .input-lang-btn.active {
+      border-color: var(--ochre);
+      color: var(--ochre);
+      background: rgba(201, 133, 58, 0.12);
     }
 
     .name-input {
@@ -459,15 +501,83 @@
 
     /* Footer */
     footer {
-      position: relative; z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--bg2);
       text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+      max-width: 1100px;
+      margin: 3.5rem auto 2.5rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      position: relative;
+      z-index: 1;
+      transition: background 0.3s, border-color 0.3s;
     }
-    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
-    .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--ochre); }
-    .footer-copy { font-size: 0.75rem; color: var(--text-muted); opacity: 0.6; }
+    html.dark footer {
+      background: var(--bg2);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    }
+    .footer-tifinagh {
+      font-family: 'Noto Sans Tifinagh', sans-serif;
+      font-size: 1.75rem;
+      color: var(--ochre);
+      letter-spacing: 4px;
+      display: block;
+      margin-bottom: 1.35rem;
+    }
+    .footer-links-row {
+      display: flex;
+      justify-content: center;
+      gap: 2.25rem;
+      margin-bottom: 1.15rem;
+      flex-wrap: wrap;
+    }
+    .footer-links-row:last-of-type {
+      margin-bottom: 1.6rem;
+    }
+    .footer-links-row a {
+      color: var(--ochre);
+      font-size: 0.98rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .footer-links-row a:hover {
+      color: var(--ochre-light);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .footer-credit {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 0.45rem;
+      line-height: 1.6;
+    }
+    .footer-copy {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      opacity: 0.85;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      footer {
+        margin: 2rem 0.85rem 1.75rem;
+        border-radius: 20px;
+        padding: 2.25rem 1rem 2rem;
+      }
+      .footer-tifinagh {
+        font-size: 1.5rem;
+        margin-bottom: 1.1rem;
+      }
+      .footer-links-row {
+        gap: 1.1rem 1.4rem;
+        margin-bottom: 0.9rem;
+      }
+      .footer-links-row a {
+        font-size: 0.92rem;
+      }
+    }
 
     /* Mobile */
     @media (max-width: 600px) {
@@ -736,8 +846,8 @@
   <div class="input-section">
     <label class="input-label">Your Name</label>
     <div class="input-row">
-      <button class="lang-btn active" onclick="setLang('latin')">Latin</button>
-      <button class="lang-btn" onclick="setLang('arabic')">العربية</button>
+      <button type="button" class="input-lang-btn active" data-lang="latin" onclick="setLang('latin')">Latin</button>
+      <button type="button" class="input-lang-btn" data-lang="arabic" onclick="setLang('arabic')">العربية</button>
     </div>
     <input
       type="text"
@@ -1091,17 +1201,22 @@
 
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <span class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</span>
-    <div class="footer-links">
+    <div class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</div>
+    <div class="footer-links-row">
       <a href="index.html">Converter</a>
       <a href="keyboard.html">Online Keyboard</a>
-      <a href="articles.html">Articles</a>
+      <a href="generator.html">Name Generator</a>
+    </div>
+    <div class="footer-links-row">
+      <a href="articles.html">Articles &amp; History</a>
+      <a href="faq.html">FAQ</a>
       <a href="about.html">About</a>
       <a href="privacy.html">Privacy Policy</a>
     </div>
-    <p>Made with ❤ for Amazigh culture · By Anaruz Elhabib</p>
-    <p style="margin-top:0.4rem">&copy; <span id="copyright-year"></span> amghnas.com</p>
+    <p class="footer-credit">Made with ❤ for Amazigh culture &amp; heritage · By Anaruz Elhabib</p>
+    <p class="footer-copy">&copy; <span id="copyright-year"></span> amghnas.com</p>
   </footer>
 
 <div class="toast" id="toast"></div>
@@ -3243,13 +3358,16 @@ const styles = {
 function setLang(lang) {
   currentLang = lang;
   const input = document.getElementById('nameInput');
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  input.dir = lang === 'arabic' ? 'rtl' : 'ltr';
-  input.placeholder = lang === 'arabic' ? 'مثال: أنارز، تيزيري...' : 'e.g. Anaruz, Tiziri, Yidir...';
-  input.value = '';
-  updateDisplay('');
-  input.focus();
+  document.querySelectorAll('.input-lang-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.input-lang-btn[data-lang="${lang}"]`);
+  if (btn) btn.classList.add('active');
+  if (input) {
+    input.dir = lang === 'arabic' ? 'rtl' : 'ltr';
+    input.placeholder = lang === 'arabic' ? 'مثال: أنارز، تيزيري...' : 'e.g. Anaruz, Tiziri, Yidir...';
+    input.value = '';
+    updateDisplay('');
+    input.focus();
+  }
 }
 
 function setStyle(style) {

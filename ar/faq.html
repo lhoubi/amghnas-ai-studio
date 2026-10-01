@@ -52,11 +52,22 @@
     .faq-cta-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
     .faq-cta-links a{background:rgba(255,255,255,0.2);color:#fff;padding:0.6rem 1.4rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.9rem;border:1px solid rgba(255,255,255,0.3);transition:background 0.2s;font-family:'Cairo',sans-serif;}
     .faq-cta-links a:hover{background:rgba(255,255,255,0.35);}
-    footer{text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;font-family:'Cairo',sans-serif;}
-    .footer-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.5rem;color:var(--ochre);display:block;margin-bottom:0.75rem;}
-    .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;}
-    .footer-links a{color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
-    .footer-links a:hover{color:var(--ochre);}
+    /* FOOTER */
+    footer{border:1px solid var(--border);border-radius:24px;background:var(--bg2);text-align:center;padding:3rem 1.5rem 2.5rem;max-width:1100px;margin:3.5rem auto 2.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);position:relative;z-index:1;transition:background 0.3s,border-color 0.3s;font-family:'Cairo',sans-serif;}
+    html.dark footer{background:var(--bg2);box-shadow:0 4px 24px rgba(0,0,0,0.2);}
+    .footer-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.75rem;color:var(--ochre);letter-spacing:4px;display:block;margin-bottom:1.35rem;}
+    .footer-links-row{display:flex;justify-content:center;gap:2.25rem;margin-bottom:1.15rem;flex-wrap:wrap;}
+    .footer-links-row:last-of-type{margin-bottom:1.6rem;}
+    .footer-links-row a{color:var(--ochre);font-size:0.98rem;font-weight:700;text-decoration:none;transition:all 0.2s ease;display:inline-block;}
+    .footer-links-row a:hover{color:var(--ochre-light);transform:translateY(-1px);text-decoration:none;}
+    .footer-credit{font-size:0.92rem;color:var(--text-muted);margin:0 0 0.45rem;line-height:1.6;}
+    .footer-copy{font-size:0.88rem;color:var(--text-muted);opacity:0.85;margin:0;}
+    @media (max-width: 640px) {
+      footer{margin:2rem 0.85rem 1.75rem;border-radius:20px;padding:2.25rem 1rem 2rem;}
+      .footer-tifinagh{font-size:1.5rem;margin-bottom:1.1rem;}
+      .footer-links-row{gap:1.1rem 1.4rem;margin-bottom:0.9rem;}
+      .footer-links-row a{font-size:0.92rem;}
+    }
     @media(max-width:640px){
       nav{padding:0 1rem !important;display:flex;align-items:center;justify-content:space-between;}
       .nav-brand{font-size:1.3rem;color:var(--ochre) !important;flex-shrink:0;display:flex !important;}
@@ -170,17 +181,22 @@
   </div>
 </main>
 
+  <!-- FOOTER -->
   <footer>
-    <span class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</span>
-    <div class="footer-links">
+    <div class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</div>
+    <div class="footer-links-row">
       <a href="index.html">المحوّل</a>
       <a href="keyboard.html">لوحة المفاتيح</a>
-      <a href="articles.html">مقالات</a>
-      <a href="about.html">عن الموقع</a>
-      <a href="privacy.html">الخصوصية</a>
+      <a href="generator.html">مولّد الأسماء</a>
     </div>
-    <p>صُنع بـ ❤ للثقافة الأمازيغية · بقلم Anaruz Elhabib</p>
-    <p style="margin-top:0.4rem">&copy; <span id="copyright-year"></span> amghnas.com</p>
+    <div class="footer-links-row">
+      <a href="articles.html">المقالات والتاريخ</a>
+      <a href="faq.html">الأسئلة الشائعة</a>
+      <a href="about.html">من نحن</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+    </div>
+    <p class="footer-credit">صُنع بـ ❤ للثقافة والتراث الأمازيغي · بقلم Anaruz Elhabib</p>
+    <p class="footer-copy">&copy; <span id="copyright-year"></span> amghnas.com</p>
   </footer>
 
 <script src="../themeToggle.js"></script>

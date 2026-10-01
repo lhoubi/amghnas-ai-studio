@@ -163,11 +163,22 @@
     .related-card:hover{transform:translateY(-2px);border-color:var(--ochre);}
     .related-card h5{color:var(--ochre);font-size:1rem;margin-bottom:0.4rem;font-weight:600;}
     .related-card p{color:var(--text-muted);font-size:0.85rem;line-height:1.5;margin:0;}
-    footer{border-top:1px solid var(--border);text-align:center;padding:2.5rem 1rem;color:var(--text-muted);font-size:0.88rem;background:rgba(245,237,224,0.5);transition:background 0.4s;}
-    html.dark footer{background:rgba(26,23,40,0.5);}
-    footer a{color:var(--ochre);text-decoration:none;}footer a:hover{text-decoration:underline;}
-    .footer-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.3rem;color:var(--ochre);display:block;margin-bottom:0.5rem;}
-    .footer-links{display:flex;justify-content:center;gap:2rem;margin:0.75rem 0;flex-wrap:wrap;}
+        /* FOOTER */
+    footer{border:1px solid var(--border);border-radius:24px;background:var(--bg2);text-align:center;padding:3rem 1.5rem 2.5rem;max-width:1100px;margin:3.5rem auto 2.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);position:relative;z-index:1;transition:background 0.3s,border-color 0.3s;}
+    html.dark footer{background:var(--bg2);box-shadow:0 4px 24px rgba(0,0,0,0.2);}
+    .footer-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.75rem;color:var(--ochre);letter-spacing:4px;display:block;margin-bottom:1.35rem;}
+    .footer-links-row{display:flex;justify-content:center;gap:2.25rem;margin-bottom:1.15rem;flex-wrap:wrap;}
+    .footer-links-row:last-of-type{margin-bottom:1.6rem;}
+    .footer-links-row a{color:var(--ochre);font-size:0.98rem;font-weight:600;text-decoration:none;transition:all 0.2s ease;display:inline-block;}
+    .footer-links-row a:hover{color:var(--ochre-light);transform:translateY(-1px);text-decoration:none;}
+    .footer-credit{font-size:0.92rem;color:var(--text-muted);margin:0 0 0.45rem;line-height:1.6;}
+    .footer-copy{font-size:0.88rem;color:var(--text-muted);opacity:0.85;margin:0;}
+    @media (max-width: 640px) {
+      footer{margin:2rem 0.85rem 1.75rem;border-radius:20px;padding:2.25rem 1rem 2rem;}
+      .footer-tifinagh{font-size:1.5rem;margin-bottom:1.1rem;}
+      .footer-links-row{gap:1.1rem 1.4rem;margin-bottom:0.9rem;}
+      .footer-links-row a{font-size:0.92rem;}
+    }
   </style>
 </head>
 <body>
@@ -310,19 +321,22 @@
     </div>
   </div>
 
+    <!-- FOOTER -->
   <footer>
-    <span class="footer-tifinagh"> amghnas — ⴰⵎⵖⵏⴰⵙ </span>
-    <p>Outils de transcription Tifinagh et encyclopédie de la culture berbère.</p>
-    <div class="footer-links">
-      <a href="./">Convertisseur</a>
-      <a href="keyboard.html">Clavier</a>
-      <a href="generator.html">Générateur</a>
-      <a href="articles.html">Articles</a>
-      <a href="faq.html">FAQ</a>
-      <a href="privacy.html">Confidentialité</a>
-      <a href="about.html">À propos</a>
+    <div class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</div>
+    <div class="footer-links-row">
+      <a href="index.html">Convertisseur</a>
+      <a href="keyboard.html">Clavier Virtuel</a>
+      <a href="generator.html">Générateur de Noms</a>
     </div>
-    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;">&copy; 2026 amghnas. Tous droits réservés.</p>
+    <div class="footer-links-row">
+      <a href="articles.html">Articles &amp; Histoire</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">À propos</a>
+      <a href="privacy.html">Politique de Confidentialité</a>
+    </div>
+    <p class="footer-credit">Fait avec ❤ pour la culture et le patrimoine amazigh · Par Anaruz Elhabib</p>
+    <p class="footer-copy">&copy; <span id="copyright-year">2026</span> amghnas.com</p>
   </footer>
 </div>
 <script src="../themeToggle.js"></script>

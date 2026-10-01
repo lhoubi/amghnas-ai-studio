@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Convertisseur Tifinagh en Ligne &amp; Portail de la Langue Amazighe | amghnas — ⴰⵎⵖⵏⴰⵙ</title>
-  <meta name="description" content="amghnas — Convertisseur Tifinagh gratuit en ligne, clavier amazigh virtuel, générateur de prénom et dictionnaire IRCAM. Convertissez Tifinagh, Latin et Arabe instantanément." />
+  <meta name="description" content="amghnas — Convertisseur Tifinagh gratuit en ligne, clavier amazigh virtuel et générateur de prénom. Convertissez Tifinagh, Latin et Arabe instantanément." />
   <meta name="keywords" content="convertisseur tifinagh, tifinagh en latin, latin en tifinagh, arabe en tifinagh, alphabet amazigh, clavier tifinagh, prenom tifinagh, tamazight, amghnas" />
   <link rel="canonical" href="https://amghnas.com/fr/" />
   <link rel="alternate" hreflang="fr" href="https://amghnas.com/fr/" />
@@ -325,9 +325,8 @@
     .section-head{text-align:center;margin-bottom:2.5rem;}
     .section-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--text);margin-bottom:0.4rem;}
     .section-head p{color:var(--text-muted);font-size:0.98rem;max-width:600px;margin:0 auto;line-height:1.6;}
-    .hub-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
-    @media(max-width:960px){.hub-grid{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:560px){.hub-grid{grid-template-columns:1fr;}}
+    .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+    @media(max-width:860px){.hub-grid{grid-template-columns:1fr;}}
     .hub-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.4rem;backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:space-between;transition:all 0.25s ease;text-decoration:none;color:inherit;}
     .hub-card:hover{border-color:var(--ochre);transform:translateY(-4px);box-shadow:0 10px 30px rgba(201,133,58,0.15);}
     .hub-icon-wrap{width:48px;height:48px;border-radius:12px;background:rgba(201,133,58,0.1);border:1px solid rgba(201,133,58,0.25);display:flex;align-items:center;justify-content:center;color:var(--ochre);font-size:1.5rem;font-family:'Noto Sans Tifinagh',sans-serif;margin-bottom:1.2rem;}
@@ -367,11 +366,21 @@
     .faq-item[open] .faq-arrow{transform:rotate(180deg);}
     .faq-answer{padding:0 1.4rem 1.25rem;font-size:0.9rem;color:var(--text-muted);line-height:1.7;border-top:1px solid rgba(201,133,58,0.1);margin-top:0.25rem;padding-top:0.9rem;}
     .faq-answer strong{color:var(--text);}
-    footer{border-top:1px solid var(--border);text-align:center;padding:2.5rem 1rem;color:var(--text-muted);font-size:0.88rem;background:rgba(245,237,224,0.5);transition:background 0.4s;}
-    html.dark footer{background:rgba(26,23,40,0.5);}
-    footer a{color:var(--ochre);text-decoration:none;}footer a:hover{text-decoration:underline;}
-    .footer-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.3rem;color:var(--ochre);display:block;margin-bottom:0.5rem;}
-    .footer-links{display:flex;justify-content:center;gap:2rem;margin:0.75rem 0;flex-wrap:wrap;}
+    footer{border:1px solid var(--border);border-radius:24px;background:var(--bg2);text-align:center;padding:3rem 1.5rem 2.5rem;max-width:1100px;margin:3.5rem auto 2.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);position:relative;z-index:1;transition:background 0.3s,border-color 0.3s;}
+    html.dark footer{background:var(--bg2);box-shadow:0 4px 24px rgba(0,0,0,0.2);}
+    .footer-tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;font-size:1.75rem;color:var(--ochre);letter-spacing:4px;display:block;margin-bottom:1.35rem;}
+    .footer-links-row{display:flex;justify-content:center;gap:2.25rem;margin-bottom:1.15rem;flex-wrap:wrap;}
+    .footer-links-row:last-of-type{margin-bottom:1.6rem;}
+    .footer-links-row a{color:var(--ochre);font-size:0.98rem;font-weight:600;text-decoration:none;transition:all 0.2s ease;display:inline-block;}
+    .footer-links-row a:hover{color:var(--ochre-light);transform:translateY(-1px);text-decoration:none;}
+    .footer-credit{font-size:0.92rem;color:var(--text-muted);margin:0 0 0.45rem;line-height:1.6;}
+    .footer-copy{font-size:0.88rem;color:var(--text-muted);opacity:0.85;margin:0;}
+    @media (max-width: 640px) {
+      footer{margin:2rem 0.85rem 1.75rem;border-radius:20px;padding:2.25rem 1rem 2rem;}
+      .footer-tifinagh{font-size:1.5rem;margin-bottom:1.1rem;}
+      .footer-links-row{gap:1.1rem 1.4rem;margin-bottom:0.9rem;}
+      .footer-links-row a{font-size:0.92rem;}
+    }
     .nav-hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;width:36px;height:36px;cursor:pointer;color:var(--text-muted);align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;}
     .nav-hamburger:hover{border-color:var(--ochre);color:var(--ochre);}
     @media (max-width: 640px) {
@@ -806,18 +815,6 @@
         </div>
       </a>
 
-      <a href="faq.html" class="hub-card">
-        <div>
-          <div class="hub-icon-wrap">📖</div>
-          <h3>Lexique Amazigh (DGLA IRCAM)</h3>
-          <p>Consultez des milliers d'entrées de vocabulaire avec définitions précises en français, arabe et tifinagh.</p>
-        </div>
-        <div class="hub-card-link">
-          Consulter le Lexique
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
-
       <a href="articles.html" class="hub-card">
         <div>
           <div class="hub-icon-wrap">📜</div>
@@ -988,18 +985,20 @@
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</span>
-    <div class="footer-links">
+    <div class="footer-tifinagh">ⴰⵎⵖⵏⴰⵙ</div>
+    <div class="footer-links-row">
       <a href="index.html">Convertisseur</a>
-      <a href="keyboard.html">Clavier en ligne</a>
-      <a href="generator.html">Générateur</a>
-      <a href="articles.html">Articles</a>
+      <a href="keyboard.html">Clavier Virtuel</a>
+      <a href="generator.html">Générateur de Noms</a>
+    </div>
+    <div class="footer-links-row">
+      <a href="articles.html">Articles &amp; Histoire</a>
       <a href="faq.html">FAQ</a>
       <a href="about.html">À propos</a>
-      <a href="privacy.html">Confidentialité</a>
+      <a href="privacy.html">Politique de Confidentialité</a>
     </div>
-    <p>Fait avec ❤ pour la culture amazighe · Par Anaruz Elhabib</p>
-    <p style="margin-top:0.4rem">&copy; <span id="copyright-year"></span> amghnas.com</p>
+    <p class="footer-credit">Créé avec ❤ pour la culture et l'héritage amazighs · Par Anaruz Elhabib</p>
+    <p class="footer-copy">&copy; <span id="copyright-year"></span> amghnas.com</p>
   </footer>
 </div>
 
