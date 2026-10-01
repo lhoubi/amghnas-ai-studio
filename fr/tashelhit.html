@@ -179,26 +179,121 @@
       .footer-links-row{gap:1.1rem 1.4rem;margin-bottom:0.9rem;}
       .footer-links-row a{font-size:0.92rem;}
     }
+  
+    .nav-right { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+    .lang-switcher { display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0; direction: ltr; }
+    .lang-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 0.22rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      line-height: 1.3;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      border-color: var(--ochre);
+      color: var(--ochre);
+      background: rgba(201,133,58,0.08);
+      text-decoration: none;
+    }
+    #themeToggle {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    #themeToggle:hover { border-color: var(--ochre); color: var(--ochre); }
+    .sun-icon { display: none; }
+    html.dark .moon-icon { display: none; }
+    html.dark .sun-icon { display: flex; }
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      color: var(--text-muted);
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .nav-hamburger:hover { border-color: var(--ochre); color: var(--ochre); }
+    @media (max-width: 640px) {
+      nav { padding: 0 0.85rem !important; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+      .nav-brand { font-size: 1.35rem; color: var(--ochre) !important; flex-shrink: 0; display: flex !important; }
+      .nav-right { gap: 0.35rem; }
+      .lang-switcher { gap: 0.2rem; }
+      .lang-btn { padding: 0.2rem 0.45rem; font-size: 0.72rem; }
+      #themeToggle, .nav-hamburger { width: 34px; height: 34px; }
+      .nav-hamburger { display: flex !important; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: rgba(245,237,224,0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(201,133,58,0.15);
+        flex-direction: column;
+        gap: 0;
+        z-index: 99;
+        padding: 0.5rem 0 1rem;
+        list-style: none;
+      }
+      html.dark .nav-links { background: rgba(26,23,40,0.97); }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 0.85rem 1.5rem; font-size: 0.95rem; border-bottom: 1px solid rgba(201,133,58,0.1); color: var(--text); }
+      .nav-links a:hover, .nav-links a.active { color: var(--ochre); background: rgba(201,133,58,0.08); }
+      .nav-links a::after { display: none; }
+      .nav-links li:last-child a { border-bottom: none; }
+    }
+
   </style>
 </head>
 <body>
 <div class="page-wrap">
-  <nav>
+    <nav>
     <a href="index.html" class="nav-brand">ⴰⵎⵖⵏⴰⵙ</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Convertisseur</a></li>
       <li><a href="keyboard.html">Clavier</a></li>
       <li><a href="generator.html">Générateur</a></li>
-      <li><a href="articles.html" class="active">Articles</a></li>
       <li><a href="faq.html">FAQ</a></li>
+      <li><a href="articles.html" class="active">Articles</a></li>
       <li><a href="about.html">À propos</a></li>
-      <li><a href="../tashelhit.html" title="English">EN</a></li>
-      <li><a href="../ar/tashelhit.html" title="العربية">AR</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:0.75rem;">
-      <button id="themeToggle" aria-label="Changer de thème">
-        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <a href="../tashelhit.html" class="lang-btn">EN</a>
+        <a href="tashelhit.html" class="lang-btn active">FR</a>
+        <a href="../ar/tashelhit.html" class="lang-btn">AR</a>
+      </div>
+      <button id="themeToggle" aria-label="Changer le thème">
+        <span class="moon-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg></span>
+        <span class="sun-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg></span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Ouvrir le menu">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </nav>
@@ -222,9 +317,7 @@
       <span>8 min de lecture</span>
     </div>
 
-    <div class="article-hero-glyph" style="background:linear-gradient(135deg,#1a5c6b 0%,#c9853a 100%);">
-      <span>ⵜⴰⵛⵍⵃⵉⵜ</span>
-    </div>
+    <div class="article-hero-glyph" style="background:linear-gradient(135deg,#1a5c6b 0%,#c9853a 100%);"><span>ⵜⴰⵛⵍⵃⵉⵜ</span></div>
 
     <div class="quick-facts">
       <h4>Faits essentiels sur le Chleuh (Tashelhit) :</h4>
@@ -374,5 +467,26 @@
   </footer>
 </div>
 <script src="../themeToggle.js"></script>
+
+<script>
+  if (document.getElementById('copyright-year')) {
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  }
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks') || document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.innerHTML = navLinks.classList.contains('open')
+        ? '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+        : '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+    }));
+  }
+</script>
+
 </body>
 </html>

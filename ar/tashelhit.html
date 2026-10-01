@@ -109,8 +109,8 @@
     .nav-links a::after{content:'';position:absolute;bottom:-3px;right:0;left:0;height:1.5px;background:var(--ochre);transform:scaleX(0);transition:transform 0.2s;}
     .nav-links a:hover{color:var(--ochre);}.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}.nav-links a.active{color:var(--ochre);}
     .nav-right{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
-    .lang-switcher{display:flex;align-items:center;gap:0.35rem;}
-    .lang-btn{background:none;border:1.5px solid var(--border);border-radius:6px;padding:0.25rem 0.6rem;font-size:0.75rem;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;}
+    .lang-switcher{display:flex;align-items:center;gap:0.35rem;flex-shrink:0;direction:ltr;}
+    .lang-btn{background:none;border:1.5px solid var(--border);border-radius:6px;padding:0.22rem 0.55rem;font-size:0.75rem;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;font-family:'DM Sans',-apple-system,sans-serif;line-height:1.3;}
     .lang-btn:hover,.lang-btn.active{border-color:var(--ochre);color:var(--ochre);background:rgba(201,133,58,0.08);}
     #themeToggle{background:none;border:1.5px solid var(--border);border-radius:50%;width:38px;height:38px;cursor:pointer;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
     #themeToggle:hover{border-color:var(--ochre);color:var(--ochre);}
@@ -199,10 +199,15 @@
 </head>
 <body>
 <div class="page-wrap">
-  <nav>
+    <nav>
     <a href="index.html" class="nav-brand">ⴰⵎⵖⵏⴰⵙ</a>
-    <ul class="nav-links">
-      <li><a href="index.html">المحوّل</a></li><li><a href="keyboard.html">لوحة المفاتيح</a></li><li><a href="generator.html">مولّد الأسماء</a></li><li><a href="faq.html">الأسئلة الشائعة</a></li><li><a href="articles.html" class="active">المقالات</a></li><li><a href="about.html">عن الموقع</a></li>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">المحوّل</a></li>
+      <li><a href="keyboard.html">لوحة المفاتيح</a></li>
+      <li><a href="generator.html">مولّد الأسماء</a></li>
+      <li><a href="faq.html">الأسئلة الشائعة</a></li>
+      <li><a href="articles.html" class="active">المقالات</a></li>
+      <li><a href="about.html">عن الموقع</a></li>
     </ul>
     <div class="nav-right">
       <div class="lang-switcher">
@@ -234,9 +239,7 @@
       <span>بقلم أناروز الحبيب</span><span class="meta-dot"></span><span>محدّث سبتمبر 2026</span><span class="meta-dot"></span><span>7 دقائق قراءة</span>
     </div>
 
-    <div class="article-hero-glyph" style="background:linear-gradient(135deg,#1a5c6b 0%,#c9853a 100%)">
-      <span>ⵜⴰⵛⵍⵃⵉⵜ</span>
-    </div>
+    <div class="article-hero-glyph" style="background:linear-gradient(135deg,#1a5c6b 0%,#c9853a 100%);"><span>ⵜⴰⵛⵍⵃⵉⵜ</span></div>
 
     <!-- Quick Takeaways Box -->
     <div class="callout">
