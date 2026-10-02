@@ -136,12 +136,11 @@
     .article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--ochre-deep);margin:1.8rem 0 0.6rem;}
     .article-body .tifinagh{font-family:'Noto Sans Tifinagh',sans-serif;color:var(--ochre);font-size:1.15em;}
     .article-body strong{font-weight:600;}
-    .quick-facts{background:var(--card-bg);border:1.5px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 4px 16px rgba(0,0,0,0.04);}
-    .quick-facts h4{font-size:1.1rem;color:var(--ochre);margin-bottom:0.75rem;font-weight:700;}
-    .quick-facts ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
-    @media(max-width:600px){.quick-facts ul{grid-template-columns:1fr;}}
-    .quick-facts li{font-size:0.95rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:0.5rem;}
-    .quick-facts li strong{color:var(--text);}
+    .quick-facts{background:var(--card-bg);border:1px solid var(--border);border-left:4px solid var(--ochre);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:1.75rem 0 2rem;backdrop-filter:blur(8px);}
+    .quick-facts h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ochre);margin-bottom:0.6rem;}
+    .quick-facts ul{list-style:disc;padding-left:1.25rem;padding-right:0;margin:0.5rem 0 0;display:block;}
+    .quick-facts li{font-size:0.95rem;color:var(--text);line-height:1.75;margin-bottom:0.45rem;display:list-item;}
+    .quick-facts li strong{color:var(--text);font-weight:600;}
     .table-responsive{overflow-x:auto;margin:1.75rem 0;}
     table{width:100%;border-collapse:collapse;background:var(--card-bg);border-radius:12px;overflow:hidden;font-size:0.92rem;}
     th,td{padding:0.85rem 1rem;text-align:left;border-bottom:1px solid var(--border);}
@@ -370,8 +369,8 @@
             <tr>
               <td><strong>ṭ</strong> (t avec point)</td>
               <td><span class="tifinagh">ⵟ</span></td>
-              <td>ṭṭalb <span class="tifinagh" style="color:var(--ochre);margin-left:0.3rem;">(ⵟⵟⴰⵍⴱ)</span></td>
-              <td>Lettré / Faqih (فقيه)</td>
+              <td>ṭṭalb</td>
+              <td>Lettré / Faqih</td>
             </tr>
             <tr>
               <td><strong>ḥ</strong> (h avec point)</td>
@@ -382,8 +381,8 @@
             <tr>
               <td><strong>ṣ</strong> (s avec point)</td>
               <td><span class="tifinagh">ⵚ</span></td>
-              <td>ṣḍiṣ <span class="tifinagh" style="color:var(--ochre);margin-left:0.3rem;">(ⵚⴹⵉⵚ)</span></td>
-              <td>Six (chiffre 6 / ستة)</td>
+              <td>ṣḍiṣ</td>
+              <td>Six</td>
             </tr>
             <tr>
               <td><strong>ẓ</strong> (z avec point)</td>

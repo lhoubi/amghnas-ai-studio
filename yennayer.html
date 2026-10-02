@@ -108,12 +108,52 @@
 
     /* Related Articles */
     .related-section { margin-top: 3.5rem; }
-    .related-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+    .related-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
     .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-    .related-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
-    .related-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,133,58,0.15); border-color: var(--ochre); }
-    .related-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--ochre); margin-bottom: 0.35rem; }
-    .related-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    .article-body a.related-card,
+    a.related-card,
+    .related-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      padding: 1.15rem !important;
+      text-decoration: none !important;
+      color: inherit !important;
+      display: block !important;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+    }
+    .article-body a.related-card:hover,
+    a.related-card:hover,
+    .related-card:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 24px rgba(201,133,58,0.16) !important;
+      border-color: var(--ochre) !important;
+      text-decoration: none !important;
+    }
+    .article-body a.related-card *,
+    a.related-card *,
+    .related-card * {
+      text-decoration: none !important;
+    }
+    .related-card h4 {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 1.15rem !important;
+      font-weight: 600 !important;
+      color: var(--ochre) !important;
+      margin: 0 0 0.35rem 0 !important;
+      transition: color 0.2s ease !important;
+    }
+    .article-body a.related-card:hover h4,
+    a.related-card:hover h4,
+    .related-card:hover h4 {
+      color: var(--ochre-light, #dca052) !important;
+    }
+    .related-card p {
+      font-size: 0.85rem !important;
+      color: var(--text-muted) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
 
     .article-cta { margin-top: 3rem; padding: 1.75rem; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 14px; text-align: center; }
     .article-cta p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; }
@@ -370,24 +410,24 @@
           <div class="faq-answer">Common dishes include seven-vegetable couscous (seksu), tagulla (warm porridge with argan oil and honey), and ourkimen (a multi-grain legume soup).</div>
         </div>
       </div>
+    </div>
 
-      <!-- Related Guides -->
-      <div class="related-section">
-        <div class="related-title">Explore Related Amazigh Guides</div>
-        <div class="related-grid">
-          <a href="berber-kingdoms.html" class="related-card">
-            <h4>Ancient Berber Kingdoms</h4>
-            <p>Learn about Numidia, Massinissa, and the North African monarchs who shaped antiquity.</p>
-          </a>
-          <a href="amazigh-identity.html" class="related-card">
-            <h4>Amazigh Culture &amp; Symbols</h4>
-            <p>Discover the meaning behind the Amazigh flag and the free-man symbol (Aza).</p>
-          </a>
-          <a href="tifinagh-history.html" class="related-card">
-            <h4>History of Tifinagh Script</h4>
-            <p>The 2,500-year journey of the indigenous North African alphabet.</p>
-          </a>
-        </div>
+    <!-- Related Guides -->
+    <div class="related-section">
+      <div class="related-title">Explore Related Amazigh Guides</div>
+      <div class="related-grid">
+        <a href="berber-kingdoms.html" class="related-card" style="text-decoration:none;color:inherit;display:block;">
+          <h4>Ancient Berber Kingdoms</h4>
+          <p>Learn about Numidia, Massinissa, and the North African monarchs who shaped antiquity.</p>
+        </a>
+        <a href="amazigh-identity.html" class="related-card" style="text-decoration:none;color:inherit;display:block;">
+          <h4>Amazigh Culture &amp; Symbols</h4>
+          <p>Discover the meaning behind the Amazigh flag and the free-man symbol (Aza).</p>
+        </a>
+        <a href="tifinagh-history.html" class="related-card" style="text-decoration:none;color:inherit;display:block;">
+          <h4>History of Tifinagh Script</h4>
+          <p>The 2,500-year journey of the indigenous North African alphabet.</p>
+        </a>
       </div>
     </div>
 
